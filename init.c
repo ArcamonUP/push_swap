@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:18 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/26 14:58:45 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:21:24 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,34 @@ static void	free_args(char **args)
 	free(args);
 }
 
+static int	is_valid_num(char *num)
+{
+	int		len;
+	int		i;
+	char	*max;
+
+	len = ft_strlen(num);
+	if (len > 11 || (len == 11 && num[0] != '-'))
+		return (0);
+	if (num[0] == '-')
+		max = "-2147483648";
+	else
+		max = "2147483647";
+	i = 0;
+	if (len == 11 || (len == 10 && num[0] != '-'))
+	{
+		while (max[i])
+		{
+			if (num[i] < max[i])
+				return (1);
+			else if (num[i] > max[i])
+				return (0);
+			i++;
+		}
+	}
+	return (1);
+}
+
 static int	valid_args(char **args)
 {
 	int	i;
@@ -37,11 +65,11 @@ static int	valid_args(char **args)
 	{
 		y = i + 1;
 		t = 0;
-		if (args[i][0] == '-')
+		if (args[i][0] == '-' && args[i][1])
 			t++;
-		while (args[i][t] && args[i][t] >= '0' && args[i][t] <= '9')
+		while (args[i][t] && args[i][t] >= '0' && args[i][t] <= '9' && t < 11)
 			t++;
-		if (args[i][t] || t > 11)
+		if (args[i][t] || !is_valid_num(args[i]))
 			return (0);
 		while (args[y])
 		{

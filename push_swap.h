@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:36:01 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/26 14:58:37 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/26 15:57:00 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,6 @@ void	sort_five_value(t_pile **a, t_pile **b);
 char	**ft_split(const char *str, char c);
 int		ft_atoi(const char *str);
 size_t	ft_strlcpy(char *dest, const char *src, size_t size);
+size_t	ft_strlen(const char *str);
 
 #endif
