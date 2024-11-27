@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: linux-kb <linux-kb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:46 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:27:03 by linux-kb         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 #include "libft.h"
@@ -17,14 +17,17 @@ int	main(int ac, char **av)
 {
 	t_stack	*a;
 	t_stack	*b;
-	t_stack	*temp;
+	//t_stack	*temp;
 
-	(void)ac;
-	a = init(av[1]);
+	if (ac == 1)
+		return (0);
+	av++;
+	a = init(av);
 	b = NULL;
 	if (!a)
 		return (0);
 	sort_dispatch(&a, &b);
+	/*
 	temp = a;
 	while (temp->next)
 	{
@@ -32,6 +35,7 @@ int	main(int ac, char **av)
 		temp = temp->next;
 	}
 	ft_printf("Content : %i | taille : %i\n", temp->content, temp->len);
+	*/
 	free_pile(a);
 	free_pile(b);
 }

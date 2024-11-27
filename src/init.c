@@ -1,30 +1,17 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: linux-kb <linux-kb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:18 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:24:34 by linux-kb         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "push_swap.h"
 #include <unistd.h>
-
-static void	free_args(char **args)
-{
-	int	i;
-
-	i = 0;
-	while (args[i])
-	{
-		free(args[i]);
-		i++;
-	}
-	free(args);
-}
 
 static int	is_valid_num(char *num)
 {
@@ -102,29 +89,26 @@ static void	add_top(t_stack **a, t_stack *new)
 	temp->next = new;
 }
 
-
-t_stack	*init(char *list)
+t_stack	*init(char **tab_args)
 {
 	t_stack	*a;
 	t_stack	*temp;
-	char	**tab_args;
 
-	tab_args = ft_split(list, ' ');
 	if (!tab_args || !valid_args(tab_args))
 	{
 		write(2, "Error\n", 6);
-		return (free_args(tab_args), NULL);
+		return (NULL);
 	}
 	a = pilenew(ft_atoi(tab_args[0]));
 	if (!a)
-		return (free_args(tab_args), free(a), NULL);
+		return (free(a), NULL);
 	while (tab_args[a->len])
 	{
 		temp = pilenew(ft_atoi(tab_args[a->len]));
 		if (!temp)
-			return (free_pile(a), free_args(tab_args), NULL);
+			return (free_pile(a), NULL);
 		add_top(&a, temp);
 		a->len++;
 	}
-	return (free_args(tab_args), a);
+	return (a);
 }

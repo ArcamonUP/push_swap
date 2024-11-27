@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
+/*   By: linux-kb <linux-kb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:36:01 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 20:26:29 by linux-kb         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
@@ -21,7 +21,7 @@ typedef struct s_stack
 {
 	int				content;
 	struct s_stack	*next;
-	size_t			len;
+	int				len;
 }	t_stack;
 
 int		minimum(t_stack *stack);
@@ -39,13 +39,14 @@ void	rra(t_stack **a, int print);
 void	rrb(t_stack **b, int print);
 void	rrr(t_stack **a, t_stack **b);
 void	sort_dispatch(t_stack **a, t_stack **b);
-t_stack	*init(char *list);
+t_stack	*init(char **tab_args);
 t_stack	*pilenew(int content);
 int		ft_strcmp(char *s1, char *s2);
 void	free_pile(t_stack *stack);
 void	sort_three_value(t_stack **a);
 void	sort_four_value(t_stack **a, t_stack **b);
 void	sort_five_value(t_stack **a, t_stack **b);
+void	sort(t_stack **a, t_stack **b);
 /*
 char	**ft_split(const char *str, char c);
 int		ft_atoi(const char *str);
