@@ -6,20 +6,20 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:34:32 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/26 13:16:28 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	minimum(t_pile *pile)
+int	minimum(t_stack *stack)
 {
-	t_pile	*temp;
+	t_stack	*temp;
 	int		i;
 
-	temp = pile;
+	temp = stack;
 	i = temp->content;
-	temp = pile;
+	temp = stack;
 	while (temp->next)
 	{
 		if (temp->content < i)
@@ -31,14 +31,14 @@ int	minimum(t_pile *pile)
 	return (i);
 }
 
-int	maximum(t_pile *pile)
+int	maximum(t_stack *stack)
 {
-	t_pile	*temp;
+	t_stack	*temp;
 	int		i;
 
-	temp = pile;
+	temp = stack;
 	i = temp->content;
-	temp = pile;
+	temp = stack;
 	while (temp->next)
 	{
 		if (temp->content > i)
@@ -50,9 +50,9 @@ int	maximum(t_pile *pile)
 	return (i);
 }
 
-int	is_sorted(t_pile *a)
+int	is_sorted(t_stack *a)
 {
-	t_pile	*temp;
+	t_stack	*temp;
 	int		i;
 
 	temp = a;
@@ -67,11 +67,11 @@ int	is_sorted(t_pile *a)
 	return (1);
 }
 
-t_pile	*pilenew(int content)
+t_stack	*pilenew(int content)
 {
-	t_pile	*result;
+	t_stack	*result;
 
-	result = (t_pile *)malloc(sizeof(*result));
+	result = (t_stack *)malloc(sizeof(*result));
 	if (!result)
 		return (NULL);
 	result->content = content;

@@ -6,13 +6,13 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:50:55 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 10:41:54 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_pile *a, int print)
+void	sa(t_stack *a, int print)
 {
 	int	temp;
 
@@ -26,7 +26,7 @@ void	sa(t_pile *a, int print)
 		write(1, "sa\n", 3);
 }
 
-void	sb(t_pile *b, int print)
+void	sb(t_stack *b, int print)
 {
 	int	temp;
 
@@ -40,16 +40,16 @@ void	sb(t_pile *b, int print)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_pile *a, t_pile *b)
+void	ss(t_stack *a, t_stack *b)
 {
 	sa(a, 0);
 	sb(b, 0);
 	write(1, "ss\n", 3);
 }
 
-void	pb(t_pile **a, t_pile **b)
+void	pb(t_stack **a, t_stack **b)
 {
-	t_pile	*temp;
+	t_stack	*temp;
 
 	if (a && *a)
 	{
@@ -65,9 +65,9 @@ void	pb(t_pile **a, t_pile **b)
 	write(1, "pb\n", 3);
 }
 
-void	pa(t_pile **a, t_pile **b)
+void	pa(t_stack **a, t_stack **b)
 {
-	t_pile	*temp;
+	t_stack	*temp;
 
 	if (b && *b)
 	{

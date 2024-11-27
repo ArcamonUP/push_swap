@@ -6,13 +6,13 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:42:46 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/26 15:13:26 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three_value(t_pile **a)
+void	sort_three_value(t_stack **a)
 {
 	int	min;
 	int	max;
@@ -33,7 +33,7 @@ void	sort_three_value(t_pile **a)
 		sa(*a, 1);
 }
 
-void	sort_four_value(t_pile **a, t_pile **b)
+void	sort_four_value(t_stack **a, t_stack **b)
 {
 	int	min;
 
@@ -52,7 +52,7 @@ void	sort_four_value(t_pile **a, t_pile **b)
 	sort_four_value(a, b);
 }
 
-void	sort_five_value(t_pile **a, t_pile **b)
+void	sort_five_value(t_stack **a, t_stack **b)
 {
 	int	min;
 

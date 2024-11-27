@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   sort_dispatch.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:32:46 by kbaridon          #+#    #+#             */
+/*   Created: 2024/11/22 12:17:46 by kbaridon          #+#    #+#             */
 /*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 
-int	main(int ac, char **av)
+void	sort_dispatch(t_stack **a, t_stack **b)
 {
-	t_stack	*a;
-	t_stack	*b;
-	t_stack	*temp;
-
-	(void)ac;
-	a = init(av[1]);
-	b = NULL;
-	if (!a)
-		return (0);
-	sort_dispatch(&a, &b);
-	temp = a;
-	while (temp->next)
+	if (is_sorted(*a))
+		return ;
+	if ((*a)->len == 2)
 	{
-		ft_printf("Content : %i | taille : %i\n", temp->content, temp->len);
-		temp = temp->next;
+		sa(*a, 1);
+		return ;
 	}
-	ft_printf("Content : %i | taille : %i\n", temp->content, temp->len);
-	free_pile(a);
-	free_pile(b);
+	if ((*a)->len == 3)
+		return (sort_three_value(a));
+	if ((*a)->len == 4)
+		return (sort_four_value(a, b));
+	if ((*a)->len == 5)
+		return (sort_five_value(a, b));
+	return (sort(a, b));
 }

@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:18 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/26 17:21:24 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ static int	valid_args(char **args)
 	return (1);
 }
 
-static void	add_top(t_pile **a, t_pile *new)
+static void	add_top(t_stack **a, t_stack *new)
 {
-	t_pile	*temp;
+	t_stack	*temp;
 
 	temp = *a;
 	if (!new || !a)
@@ -103,10 +103,10 @@ static void	add_top(t_pile **a, t_pile *new)
 }
 
 
-t_pile	*init(char *list)
+t_stack	*init(char *list)
 {
-	t_pile	*a;
-	t_pile	*temp;
+	t_stack	*a;
+	t_stack	*temp;
 	char	**tab_args;
 
 	tab_args = ft_split(list, ' ');

@@ -6,16 +6,16 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:06:22 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/26 11:01:38 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:32:20 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_pile **a, int print)
+void	ra(t_stack **a, int print)
 {
-	t_pile	*temp;
-	t_pile	*last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	if (!a || !(*a) || !(*a)->next)
 		return ;
@@ -35,10 +35,10 @@ void	ra(t_pile **a, int print)
 		write(1, "ra\n", 3);
 }
 
-void	rb(t_pile **b, int print)
+void	rb(t_stack **b, int print)
 {
-	t_pile	*temp;
-	t_pile	*last;
+	t_stack	*temp;
+	t_stack	*last;
 
 	if (!b || !(*b) || !(*b)->next)
 		return ;
@@ -54,7 +54,7 @@ void	rb(t_pile **b, int print)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_pile **a, t_pile **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	ra(a, 0);
 	rb(b, 0);

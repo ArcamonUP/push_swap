@@ -6,7 +6,7 @@
 #    By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 10:58:52 by kbaridon          #+#    #+#              #
-#    Updated: 2024/11/27 12:31:02 by kbaridon         ###   ########.fr        #
+#    Updated: 2024/11/27 15:37:47 by kbaridon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,11 @@ SRC =	push_swap.c \
 		possible_move_1.c \
 		possible_move_2.c \
 		possible_move_3.c \
+		sort_dispatch.c \
 		sort.c \
 		sort_small.c \
 		utils.c \
-		free_pile.c
+		free_stack.c
 
 OBJS = $(addprefix $(SRCDIR)/, $(SRC:.c=.o))
 

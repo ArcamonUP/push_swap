@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:36:01 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 12:32:49 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,35 +17,35 @@
 # include <unistd.h>
 # include "libft.h"
 
-typedef struct s_pile
+typedef struct s_stack
 {
 	int				content;
-	struct s_pile	*next;
+	struct s_stack	*next;
 	size_t			len;
-}	t_pile;
+}	t_stack;
 
-int		minimum(t_pile *pile);
-int		maximum(t_pile *pile);
-int		is_sorted(t_pile *a);
-void	sa(t_pile *a, int print);
-void	sb(t_pile *b, int print);
-void	ss(t_pile *a, t_pile *b);
-void	pb(t_pile **a, t_pile **b);
-void	pa(t_pile **a, t_pile **b);
-void	ra(t_pile **a, int print);
-void	rb(t_pile **b, int print);
-void	rr(t_pile **a, t_pile **b);
-void	rra(t_pile **a, int print);
-void	rrb(t_pile **b, int print);
-void	rrr(t_pile **a, t_pile **b);
-void	sort_dispatch(t_pile **a, t_pile **b);
-t_pile	*init(char *list);
-t_pile	*pilenew(int content);
+int		minimum(t_stack *stack);
+int		maximum(t_stack *stack);
+int		is_sorted(t_stack *a);
+void	sa(t_stack *a, int print);
+void	sb(t_stack *b, int print);
+void	ss(t_stack *a, t_stack *b);
+void	pb(t_stack **a, t_stack **b);
+void	pa(t_stack **a, t_stack **b);
+void	ra(t_stack **a, int print);
+void	rb(t_stack **b, int print);
+void	rr(t_stack **a, t_stack **b);
+void	rra(t_stack **a, int print);
+void	rrb(t_stack **b, int print);
+void	rrr(t_stack **a, t_stack **b);
+void	sort_dispatch(t_stack **a, t_stack **b);
+t_stack	*init(char *list);
+t_stack	*pilenew(int content);
 int		ft_strcmp(char *s1, char *s2);
-void	free_pile(t_pile *pile);
-void	sort_three_value(t_pile **a);
-void	sort_four_value(t_pile **a, t_pile **b);
-void	sort_five_value(t_pile **a, t_pile **b);
+void	free_pile(t_stack *stack);
+void	sort_three_value(t_stack **a);
+void	sort_four_value(t_stack **a, t_stack **b);
+void	sort_five_value(t_stack **a, t_stack **b);
 /*
 char	**ft_split(const char *str, char c);
 int		ft_atoi(const char *str);

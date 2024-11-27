@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   free_pile.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 15:32:46 by kbaridon          #+#    #+#             */
+/*   Created: 2024/11/22 12:17:42 by kbaridon          #+#    #+#             */
 /*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 
-int	main(int ac, char **av)
+void	free_pile(t_stack *stack)
 {
-	t_stack	*a;
-	t_stack	*b;
 	t_stack	*temp;
 
-	(void)ac;
-	a = init(av[1]);
-	b = NULL;
-	if (!a)
-		return (0);
-	sort_dispatch(&a, &b);
-	temp = a;
-	while (temp->next)
+	if (!stack)
+		return ;
+	while (stack->next)
 	{
-		ft_printf("Content : %i | taille : %i\n", temp->content, temp->len);
-		temp = temp->next;
+		temp = stack->next;
+		free(stack);
+		stack = temp;
 	}
-	ft_printf("Content : %i | taille : %i\n", temp->content, temp->len);
-	free_pile(a);
-	free_pile(b);
+	free(stack);
 }
