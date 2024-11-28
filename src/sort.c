@@ -91,7 +91,7 @@ void	sort(t_stack **a, t_stack **b)
 	while (*a && !is_sorted(*a))
 	{
 		chunk_limit = current_min + chunk_size;
-		while (has_elements_in_chunk(*a, chunk_limit))
+		while (has_elements_in_chunk(*a, chunk_limit) && !is_sorted(*a))
 		{
 			if ((*a)->content <= chunk_limit)
 				pb(a, b);
