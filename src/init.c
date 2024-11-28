@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: linux-kb <linux-kb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:18 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 20:24:34 by linux-kb         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:07:25 by kbaridon         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "push_swap.h"
 #include <unistd.h>
@@ -89,11 +89,16 @@ static void	add_top(t_stack **a, t_stack *new)
 	temp->next = new;
 }
 
-t_stack	*init(char **tab_args)
+t_stack	*init(char **list)
 {
 	t_stack	*a;
 	t_stack	*temp;
+	char	**tab_args;
 
+	if (!list[1])
+		tab_args = ft_split(*list, ' ');
+	else
+		tab_args = list;
 	if (!tab_args || !valid_args(tab_args))
 	{
 		write(2, "Error\n", 6);

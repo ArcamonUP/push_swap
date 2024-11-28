@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:06:22 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 15:32:20 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/28 14:38:15 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,14 @@ void	rb(t_stack **b, int print)
 	if (!b || !(*b) || !(*b)->next)
 		return ;
 	temp = *b;
+	temp->len = 1;
 	*b = (*b)->next;
 	last = *b;
 	while (last->next)
+	{
+		last->next->len++;
 		last = last->next;
+	}
 	last->next = temp;
 	temp->next = NULL;
 	(*b)->len++;
