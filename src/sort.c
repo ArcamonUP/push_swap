@@ -84,13 +84,13 @@ void	sort(t_stack **a, t_stack **b)
 {
 	int	chunk_size;
 	int	chunk_limit;
-	int	current_min;
 
 	chunk_size = (*a)->len / 5;
-	current_min = minimum(*a);
+	if ((*a)->len > 100)
+		chunk_size = (*a)->len / 10;
 	while (*a && !is_sorted(*a))
 	{
-		chunk_limit = current_min + chunk_size;
+		chunk_limit = minimum(*a) + chunk_size;
 		while (has_elements_in_chunk(*a, chunk_limit) && !is_sorted(*a))
 		{
 			if ((*a)->content <= chunk_limit)
@@ -100,7 +100,6 @@ void	sort(t_stack **a, t_stack **b)
 			else
 				rra(a, 1);
 		}
-		current_min = chunk_limit;
 	}
 	while (*b)
 	{
