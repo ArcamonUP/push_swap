@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:23 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/28 15:39:25 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/29 14:01:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,47 @@ static int	has_elements_in_chunk(t_stack *stack, int chunk_limit)
 static int	r_or_rr(t_stack **stack, int chunk)
 {
 	t_stack	*temp;
-	int		pos_top;
-	int		pos_bottom;
+	t_stack	*pos_top;
+	t_stack	*pos_bottom;
 
 	if (!stack || !(*stack))
 		return (0);
 	temp = *stack;
-	pos_top = -1;
-	pos_bottom = -1;
+	pos_top = NULL;
 	while (temp)
 	{
 		if (temp->content <= chunk)
 		{
-			if (pos_top == -1)
-				pos_top = (*stack)->len - temp->len;
-			pos_bottom = temp->len;
+			if (pos_top == NULL)
+				pos_top = temp;
+			pos_bottom = temp;
 		}
 		temp = temp->next;
 	}
-	if (pos_top == -1)
-		return (0);
-	if (pos_top <= pos_bottom)
+	if (((*stack)->len - pos_top->len) < pos_bottom->len)
 		return (1);
+	else if (((*stack)->len - pos_top->len) == pos_bottom->len)
+		return ((pos_bottom->content < pos_top->content) + 1);
 	return (2);
+}
+
+static void	pb_in_order(t_stack **a, t_stack **b, int limit, int chunk_size)
+{
+	if ((*a)->content <= limit)
+	{
+		pb(a, b);
+		if ((*b)->content <= (limit - (chunk_size / 2)))
+		{
+			if (has_elements_in_chunk(*a, limit) && r_or_rr(a, limit) == 1)
+				rr(a, b);
+			else
+				rb(b, 1);
+		}
+	}
+	else if (r_or_rr(a, limit) == 1)
+		ra(a, 1);
+	else
+		rra(a, 1);
 }
 
 static void	move_max_to_top(t_stack **stack)
@@ -86,20 +104,13 @@ void	sort(t_stack **a, t_stack **b)
 	int	chunk_limit;
 
 	chunk_size = (*a)->len / 5;
-	if ((*a)->len > 100)
+	if ((*a)->len > 200)
 		chunk_size = (*a)->len / 10;
 	while (*a && !is_sorted(*a))
 	{
 		chunk_limit = minimum(*a) + chunk_size;
-		while (has_elements_in_chunk(*a, chunk_limit) && !is_sorted(*a))
-		{
-			if ((*a)->content <= chunk_limit)
-				pb(a, b);
-			else if (r_or_rr(a, chunk_limit) == 1)
-				ra(a, 1);
-			else
-				rra(a, 1);
-		}
+		while (has_elements_in_chunk(*a, chunk_limit))
+			pb_in_order(a, b, chunk_limit, chunk_size);
 	}
 	while (*b)
 	{

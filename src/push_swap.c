@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:46 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/28 15:03:30 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:56:23 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	if (ac == 2)
-		a = init(&av[1]);
+		a = pre_init(&av[1]);
 	else
 	{
 		av++;
-		a = init(av);
+		a = pre_init(av);
 	}
 	b = NULL;
 	if (!a)

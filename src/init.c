@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:18 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/28 15:07:25 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/11/29 12:53:21 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static int	valid_args(char **args)
 			return (0);
 		while (args[y])
 		{
-			if (ft_strcmp(args[i], args[y]) == 0)
+			if (ft_atoi(args[i]) == ft_atoi(args[y]))
 				return (0);
 			y++;
 		}
@@ -89,17 +89,12 @@ static void	add_top(t_stack **a, t_stack *new)
 	temp->next = new;
 }
 
-t_stack	*init(char **list)
+static t_stack	*init(char **tab_args)
 {
 	t_stack	*a;
 	t_stack	*temp;
-	char	**tab_args;
 
-	if (!list[1])
-		tab_args = ft_split(*list, ' ');
-	else
-		tab_args = list;
-	if (!tab_args || !valid_args(tab_args))
+	if (!tab_args[0] || !valid_args(tab_args))
 	{
 		write(2, "Error\n", 6);
 		return (NULL);
@@ -116,4 +111,27 @@ t_stack	*init(char **list)
 		a->len++;
 	}
 	return (a);
+}
+
+t_stack	*pre_init(char **list)
+{
+	char	**tab_args;
+	t_stack	*temp;
+	int		i;
+
+	if (!list[1])
+	{
+		i = 0;
+		tab_args = ft_split(*list, ' ');
+		temp = init(tab_args);
+		while (tab_args[i])
+		{
+			free(tab_args[i]);
+			i++;
+		}
+		free(tab_args);
+		return (temp);
+	}
+	else
+		return (init(list));
 }
