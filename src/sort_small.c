@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/26 10:42:46 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/02 14:24:28 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	sort_three_value(t_stack **a)
 
 	min = minimum(*a);
 	max = maximum(*a);
+	if (is_sorted(*a))
+		return ;
 	if ((*a)->content == min)
 	{
 		rra(a, 1);
@@ -37,6 +39,8 @@ void	sort_four_value(t_stack **a, t_stack **b)
 {
 	int	min;
 
+	if (is_sorted(*a))
+		return ;
 	min = minimum(*a);
 	if ((*a)->content == min)
 	{
@@ -56,6 +60,8 @@ void	sort_five_value(t_stack **a, t_stack **b)
 {
 	int	min;
 
+	if (is_sorted(*a))
+		return ;
 	min = minimum(*a);
 	if ((*a)->len == 4)
 	{
