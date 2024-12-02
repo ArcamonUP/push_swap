@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:23 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/02 17:04:28 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/02 17:39:36 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	sort(t_stack **a, t_stack **b)
 		while (has_elements_in_chunk(*a, chunk_limit))
 			pb_in_order(a, b, chunk_limit, chunk_size);
 	}
-	while (*b)
+	while ((*b))
 	{
 		move_max_to_top(b);
 		pa(a, b);
