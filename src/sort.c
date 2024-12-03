@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:23 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/02 17:39:36 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/03 12:24:48 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,9 @@ void	sort(t_stack **a, t_stack **b)
 	int	chunk_size;
 	int	chunk_limit;
 
-	chunk_size = (*a)->len / 5;
+	chunk_size = (minimum(*a) + maximum(*a)) / 5;
 	if ((*a)->len > 200)
-		chunk_size = (*a)->len / 10;
+		chunk_size = (minimum(*a) + maximum(*a)) / 10;
 	while (*a && !is_sorted(*a))
 	{
 		chunk_limit = minimum(*a) + chunk_size;
