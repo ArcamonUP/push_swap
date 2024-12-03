@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:36:01 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/03 12:17:36 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/03 17:16:37 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	rrr(t_stack **a, t_stack **b);
 void	sort_dispatch(t_stack **a, t_stack **b);
 t_stack	*pre_init(char **list);
 t_stack	*pilenew(int content);
-int		ft_strcmp(char *s1, char *s2);
 void	free_pile(t_stack *stack);
 void	sort_three_value(t_stack **a);
 void	sort_four_value(t_stack **a, t_stack **b);
 void	sort_five_value(t_stack **a, t_stack **b);
 void	sort(t_stack **a, t_stack **b);
+int		abs(int x);
 
 #endif
