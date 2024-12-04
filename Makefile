@@ -6,7 +6,7 @@
 #    By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 10:58:52 by kbaridon          #+#    #+#              #
-#    Updated: 2024/12/03 13:29:12 by kbaridon         ###   ########.fr        #
+#    Updated: 2024/12/04 16:23:11 by kbaridon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC =	push_swap.c \
 		possible_move_3.c \
 		sort_dispatch.c \
 		sort.c \
+		push_to_a.c \
 		sort_small.c \
 		utils.c \
 		free_stack.c

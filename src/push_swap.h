@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 16:36:01 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/03 17:16:37 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:24:16 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,8 @@ void	sort_four_value(t_stack **a, t_stack **b);
 void	sort_five_value(t_stack **a, t_stack **b);
 void	sort(t_stack **a, t_stack **b);
 int		abs(int x);
+
+void	put_to_a(t_stack **a, t_stack **b);
+int		r_or_rr(t_stack **stack, int chunk);
 
 #endif

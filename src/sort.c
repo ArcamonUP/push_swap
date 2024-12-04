@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:23 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/03 17:15:58 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/04 16:34:36 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	has_elements_in_chunk(t_stack *stack, int chunk_limit)
 	return (0);
 }
 
-static int	r_or_rr(t_stack **stack, int chunk)
+int	r_or_rr(t_stack **stack, int chunk)
 {
 	t_stack	*temp;
 	t_stack	*pos_top;
@@ -69,35 +69,6 @@ static void	pb_in_order(t_stack **a, t_stack **b, int limit, int chunk_size)
 		rra(a, 1);
 }
 
-static void	move_max_to_top(t_stack **stack)
-{
-	int		max;
-	int		i;
-	t_stack	*temp;
-
-	max = maximum(*stack);
-	temp = *stack;
-	while (temp)
-	{
-		if (temp->content == max)
-		{
-			if (((*stack)->len - temp->len) <= temp->len)
-				i = 1;
-			else
-				i = 2;
-			break ;
-		}
-		temp = temp->next;
-	}
-	while ((*stack)->content != max)
-	{
-		if (i == 1)
-			rb(stack, 1);
-		else
-			rrb(stack, 1);
-	}
-}
-
 void	sort(t_stack **a, t_stack **b)
 {
 	int	chunk_size;
@@ -112,9 +83,7 @@ void	sort(t_stack **a, t_stack **b)
 		while (has_elements_in_chunk(*a, chunk_limit))
 			pb_in_order(a, b, chunk_limit, chunk_size);
 	}
-	while ((*b))
-	{
-		move_max_to_top(b);
-		pa(a, b);
-	}
+	put_to_a(a, b); //Pb : Prend parfois le chemin du min alors que ce n'est pas le plus opti
+	while (!is_sorted(*a))
+		rra(a, 1);
 }
