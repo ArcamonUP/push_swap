@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:11:53 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/04 16:36:07 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/06 11:44:54 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static int	move_to_top(t_stack **stack)
 	t_stack	*temp;
 
 	value = maximum(*stack);
-	if (get_cost(stack, minimum(*stack) + 2 < get_cost(stack, value)))
+	if ((get_cost(stack, minimum(*stack) + 2) < get_cost(stack, value)))
 		value = minimum(*stack);
 	temp = *stack;
 	while (temp)
