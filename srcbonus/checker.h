@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 12:17:42 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/08 13:52:59 by kbaridon         ###   ########.fr       */
+/*   Created: 2024/12/08 13:23:12 by kbaridon          #+#    #+#             */
+/*   Updated: 2024/12/08 14:05:56 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-void	free_stack(t_stack *stack)
-{
-	t_stack	*temp;
+# include "push_swap.h"
 
-	if (!stack)
-		return ;
-	while (stack->next)
-	{
-		temp = stack->next;
-		free(stack);
-		stack = temp;
-	}
-	free(stack);
-}
+#endif

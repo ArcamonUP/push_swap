@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:17:18 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/29 12:53:21 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:53:15 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ static t_stack	*init(char **tab_args)
 	{
 		temp = pilenew(ft_atoi(tab_args[a->len]));
 		if (!temp)
-			return (free_pile(a), NULL);
+			return (free_stack(a), NULL);
 		add_top(&a, temp);
 		a->len++;
 	}

@@ -50,7 +50,8 @@ SRC =	ft_atoi.c \
 	ft_strmapi.c \
 	ft_printf.c \
 	ft_puthexa.c \
-	ft_putdecimal.c
+	ft_putdecimal.c \
+	get_next_line.c
 
 SRCB =	ft_lstadd_back_bonus.c \
 	ft_lstadd_front_bonus.c \

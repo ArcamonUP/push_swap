@@ -6,12 +6,11 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 15:32:46 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/29 13:56:23 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:54:14 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft.h"
 
 int	main(int ac, char **av)
 {
@@ -31,6 +30,6 @@ int	main(int ac, char **av)
 	if (!a)
 		return (0);
 	sort_dispatch(&a, &b);
-	free_pile(a);
-	free_pile(b);
+	free_stack(a);
+	free_stack(b);
 }

@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 10:50:55 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/27 15:32:16 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:39:39 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@ void	sb(t_stack *b, int print)
 		write(1, "sb\n", 3);
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b, int print)
 {
 	sa(a, 0);
 	sb(b, 0);
-	write(1, "ss\n", 3);
+	if (print == 1)
+		write(1, "ss\n", 3);
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b, int print)
 {
 	t_stack	*temp;
 
@@ -62,10 +63,11 @@ void	pb(t_stack **a, t_stack **b)
 		else
 			(*b)->len = 1;
 	}
-	write(1, "pb\n", 3);
+	if (print == 1)
+		write(1, "pb\n", 3);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b, int print)
 {
 	t_stack	*temp;
 
@@ -80,5 +82,6 @@ void	pa(t_stack **a, t_stack **b)
 		else
 			(*a)->len = 1;
 	}
-	write(1, "pa\n", 3);
+	if (print == 1)
+		write(1, "pa\n", 3);
 }

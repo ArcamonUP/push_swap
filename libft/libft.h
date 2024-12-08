@@ -17,6 +17,9 @@
 # include <unistd.h>
 # include <stdint.h>
 # include <stdarg.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 50
+# endif
 
 typedef struct s_list
 {

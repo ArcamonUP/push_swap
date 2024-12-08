@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:23 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/08 12:34:26 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:42:08 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ static void	pb_in_order(t_stack **a, t_stack **b, int limit, int chunk_size)
 {
 	if ((*a)->content <= limit)
 	{
-		pb(a, b);
+		pb(a, b, 1);
 		chunk_size++;
 		if ((*b)->content <= (limit - (chunk_size / 2)))
 		{
 			if (has_elements_in_chunk(*a, limit) && r_or_rr(a, limit) == 1)
-				rr(a, b);
+				rr(a, b, 1);
 			else
 				rb(b, 1);
 		}

@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:06:22 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/11/28 14:38:15 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:39:58 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,10 @@ void	rb(t_stack **b, int print)
 		write(1, "rb\n", 3);
 }
 
-void	rr(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b, int print)
 {
 	ra(a, 0);
 	rb(b, 0);
-	write(1, "rr\n", 3);
+	if (print == 1)
+		write(1, "rr\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:11:53 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/08 12:44:50 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 13:41:39 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ static void	organize(t_stack **a, t_stack **b)
 		while (last_elem(a) < maximum(*a) && last_elem(a) > maximum(*b))
 		{
 			if (cost_to_top(b) == 2)
-				rrr(a, b);
+				rrr(a, b, 1);
 			else
 				rra(a, 1);
 		}
@@ -93,9 +93,9 @@ void	put_to_a(t_stack **a, t_stack **b)
 	{
 		organize(a, b);
 		put_to_top(a, b);
-		pa(a, b);
+		pa(a, b, 1);
 		if (((*b) && maximum(*b) > (*a)->content) && cost_to_top(b) == 1)
-			rr(a, b);
+			rr(a, b, 1);
 		else if ((*b) && maximum(*b) > (*a)->content)
 			ra(a, 1);
 	}
