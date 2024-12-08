@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:23 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/06 17:43:07 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 10:48:59 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	sort(t_stack **a, t_stack **b)
 
 	nb_chunk = 3;
 	if ((*a)->len > 200)
-		nb_chunk = 8;
+		nb_chunk = 9;
 	chunk_size = ((abs(maximum(*a)) + abs(minimum(*a))) / nb_chunk) + 1;
 	while (*a && !is_sorted(*a))
 	{
@@ -87,6 +87,6 @@ void	sort(t_stack **a, t_stack **b)
 			pb_in_order(a, b, chunk_limit, chunk_size);
 	}
 	put_to_a(a, b);
-	//while (!is_sorted(*a))
-		//rra(a, 1);
+	while (!is_sorted(*a))
+		rra(a, 1);
 }
