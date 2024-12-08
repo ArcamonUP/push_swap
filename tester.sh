@@ -55,4 +55,4 @@ else
     echo -e "${RED}Voir $KO_FILE pour plus de détails.${NC}"
 fi
 
-echo -e "Moyenne des lignes générées par push_swap : ${AVG_LINES}"
+echo -e "Moyenne d'operations de push_swap : ${AVG_LINES}"
