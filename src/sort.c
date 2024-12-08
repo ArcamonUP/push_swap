@@ -6,7 +6,7 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 15:17:23 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/08 10:48:59 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 12:34:26 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ static void	pb_in_order(t_stack **a, t_stack **b, int limit, int chunk_size)
 
 void	sort(t_stack **a, t_stack **b)
 {
-	int	chunk_size;
-	int	chunk_limit;
-	int	nb_chunk;
+	int		chunk_size;
+	int		chunk_limit;
+	int		nb_chunk;
 
 	nb_chunk = 3;
 	if ((*a)->len > 200)
@@ -82,7 +82,7 @@ void	sort(t_stack **a, t_stack **b)
 	chunk_size = ((abs(maximum(*a)) + abs(minimum(*a))) / nb_chunk) + 1;
 	while (*a && !is_sorted(*a))
 	{
-		chunk_limit = minimum(*a) + chunk_size;
+		chunk_limit = minimum(*a) + (chunk_size);
 		while (has_elements_in_chunk(*a, chunk_limit))
 			pb_in_order(a, b, chunk_limit, chunk_size);
 	}

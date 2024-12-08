@@ -6,13 +6,13 @@
 /*   By: kbaridon <kbaridon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 15:11:53 by kbaridon          #+#    #+#             */
-/*   Updated: 2024/12/08 10:04:40 by kbaridon         ###   ########.fr       */
+/*   Updated: 2024/12/08 12:44:50 by kbaridon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	move_to_top(t_stack **stack)
+static int	cost_to_top(t_stack **stack)
 {
 	int		value;
 	t_stack	*temp;
@@ -50,41 +50,51 @@ static void	organize(t_stack **a, t_stack **b)
 	if (*a && (*a)->next)
 	{
 		while (last_elem(a) < maximum(*a) && last_elem(a) > maximum(*b))
-			rra(a, 1);
+		{
+			if (cost_to_top(b) == 2)
+				rrr(a, b);
+			else
+				rra(a, 1);
+		}
+	}
+}
+
+static void	put_to_top(t_stack **a, t_stack **b)
+{
+	int	i;
+
+	i = cost_to_top(b);
+	if (!(*a) || !(*a)->next)
+	{
+		while ((*b)->content != maximum(*b))
+		{
+			if (i == 1)
+				rb(b, 1);
+			else
+				rrb(b, 1);
+		}
+	}
+	else
+	{
+		while ((*b)->content != maximum(*b) && \
+		(last_elem(a) < maximum(*a) && (*b)->content < last_elem(a)))
+		{
+			if (i == 1)
+				rb(b, 1);
+			else
+				rrb(b, 1);
+		}
 	}
 }
 
 void	put_to_a(t_stack **a, t_stack **b)
 {
-	int	i;
-
 	while ((*b))
 	{
-		i = move_to_top(b);
-		if (!(*a) || !(*a)->next)
-		{
-			while ((*b)->content != maximum(*b))
-			{
-				if (i == 1)
-					rb(b, 1);
-				else
-					rrb(b, 1);
-			}
-		}
-		else
-		{
-			while ((*b)->content != maximum(*b) && \
-			(last_elem(a) < maximum(*a) && (*b)->content < last_elem(a)))
-			{
-				if (i == 1)
-					rb(b, 1);
-				else
-					rrb(b, 1);
-			}
-		}
 		organize(a, b);
+		put_to_top(a, b);
 		pa(a, b);
-		if (((*b) && maximum(*b) > (*a)->content) && move_to_top(b) == 1)
+		if (((*b) && maximum(*b) > (*a)->content) && cost_to_top(b) == 1)
 			rr(a, b);
 		else if ((*b) && maximum(*b) > (*a)->content)
 			ra(a, 1);
