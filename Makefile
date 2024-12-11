@@ -17,6 +17,7 @@ SRCDIR = src
 SRCDIRB = srcbonus
 LIBFT = libft
 INCDIR = $(LIBFT)
+HEADERS = $(SRCDIR)/push_swap.h $(LIBFT)/libft.h $(SRCDIRB)/checker.h
 
 SRC =	init.c \
 		possible_move_1.c \
@@ -49,6 +50,10 @@ bonus: $(EXEC) checker
 .c.o:
 	$(CC) $(CFLAGS) -I $(INCDIR) -c $< -o $@
 
+$(OBJS): $(HEADERS)
+$(OBJMAIN): $(HEADERS)
+$(OBJSB): $(HEADERS)
+
 clean:
 	$(MAKE) clean -C $(LIBFT)
 	rm -rf $(OBJS)
@@ -62,4 +67,4 @@ fclean: clean
 
 re:	fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
