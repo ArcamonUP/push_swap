@@ -17,6 +17,12 @@ KO_COUNT=0
 TOTAL_LINES=0
 KO_FILE="ko_tests.txt"
 
+KO_FILE="ko_tests.txt"
+
+if [ -e "$KO_FILE" ]; then
+    rm -rf "$KO_FILE"
+fi
+
 for ((i=1; i<=NUM_TESTS; i++))
 do
     numbers=$(shuf -i 1-1000000 -n $NUMBERS_COUNT | tr '\n' ' ')
